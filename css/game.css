@@ -1,0 +1,33 @@
+/*.background    { background: rgb(171, 171, 171);
+                 table-layout: fixed;
+                 border-spacing: 0;   }
+*/				 
+.background    { background:  url('http://www.animalhi.com/thumbnails/detail/20121027/sonic%20the%20hedgehog%201280x800%20wallpaper_www.animalhi.com_100.jpg') ; 
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+	border-spacing: 0;  }
+				 
+.background td { padding: 0;          }
+.lava          { background: rgb(0, 165, 40); }
+.wall          { background: white;   }
+
+.actor  { position: absolute;  }
+.player { background: rgb(69, 69, 69); }
+.coin	{background: rgb(241, 229, 89); }
+.power {background: rgb(255, 0, 0);}
+
+.game {
+  overflow: hidden;
+  max-width: 600px;
+  max-height: 450px;
+  position: relative;
+}
+
+.lost .player {
+  background: rgb(15, 105, 37);
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
