@@ -1,8 +1,5 @@
-/*.background    { background: rgb(171, 171, 171);
-                 table-layout: fixed;
-                 border-spacing: 0;   }
-*/				 
-.background    { background:  url('http://www.animalhi.com/thumbnails/detail/20121027/sonic%20the%20hedgehog%201280x800%20wallpaper_www.animalhi.com_100.jpg') ; 
+ 
+.background    { background:  url('http://www.wallpaperhi.com/thumbnails/detail/20140803/nintendo%20video%20games%20link%20hyrule%20the%20legend%20of%20zelda%20maps%20super%20nintendo%20sprites%20retro%20games%2016bit_www.wallpaperhi.com_15.jpg') ; 
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,12 +8,45 @@
 				 
 .background td { padding: 0;          }
 .lava          { background: rgb(0, 165, 40); }
-.wall          { background: white;   }
+
+.wall          { background: blue;   }
+
+.fake          { background: blue;   }
+.note          { background: white;   }
 
 .actor  { position: absolute;  }
-.player { background: rgb(69, 69, 69); }
-.coin	{background: rgb(241, 229, 89); }
-.power {background: rgb(255, 0, 0);}
+
+.player {
+   display:block;
+   width:126px; 
+   height:180px;
+   background-color:green;
+   -webkit-border-radius:63px 63px 63px 63px/
+   108px 108px 72px 72px;
+   border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+}
+
+.coin	{     
+  width: 2;
+  height: 0;
+  border-bottom: 20px solid yellow;
+  /* 104 = 120 * 0.866 */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+
+.power { width: 0;
+  height: 0;
+  border-bottom: 6px solid white;
+  border-top: 6px solid white;
+  border-left: 6px solid red;
+  border-right: 6px solid red;
+  -moz-border-radius: 60px; 
+  -webkit-border-radius: 60px; 
+  border-radius: 60px;}
+  
+.up { background: rgb (10,100, 200);}
 
 .game {
   overflow: hidden;
@@ -26,8 +56,9 @@
 }
 
 .lost .player {
-  background: rgb(15, 105, 37);
+  background: rgb(255, 255, 255);
+  box-shadow: -4px -7px 8px green, 4px -7px 8px green;
 }
 .won .player {
-  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+  box-shadow: -4px -7px 8px yellow, 4px -7px 8px yellow;
 }

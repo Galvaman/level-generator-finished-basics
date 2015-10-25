@@ -5,7 +5,10 @@ var actorChars = {
 		"$": Power,
 		"=": Lava,
 		"|": Lava,
-		"v": Lava  
+		"v": Lava,  
+		"f": Fake,
+		"n": Note		
+		
 };
 
 
@@ -47,6 +50,7 @@ function Level(plan) {
       else if (ch == "!")
         fieldType = "lava";
 
+
       // "Push" the fieldType, which is a string, onto the gridLine array (at the end).
       gridLine.push(fieldType);
     }
@@ -82,6 +86,8 @@ Vector.prototype.times = function(factor) {
 };
 
 
+
+
 // A Player has a size, speed and position.
 function Player(pos) {
   this.pos = pos.plus(new Vector(0, -0.5));
@@ -105,6 +111,22 @@ function Power(pos){
 }
 
 Power.prototype.type = "power";
+
+function Fake(pos){
+	this.basePos = this.pos = pos.plus(new Vector(0, 0));
+	this.size = new Vector(1, 1);
+	this.wobble = Math.random() * Math.PI * 1;
+}
+
+Fake.prototype.type = "fake";
+
+function Note(pos){
+	this.basePos = this.pos = pos.plus(new Vector(0, 0));
+	this.size = new Vector(1, 1);
+	this.wobble = Math.random() * Math.PI * 1;
+}
+
+Note.prototype.type = "note";
 
 // Lava is initialized based on the character, but otherwise has a
 // size and position
@@ -321,6 +343,12 @@ Power.prototype.act = function(step){
 	this.pos = this.basePos.plus(new Vector(0, wobblePos));	
 };
 
+Fake.prototype.act = function(step){
+};
+
+Note.prototype.act = function(step){
+};
+
 var maxStep = 0.05;
 
 var playerXSpeed = 7;
@@ -376,8 +404,9 @@ Player.prototype.act = function(step, level, keys) {
 	  level.playerTouched(otherActor.type, otherActor);
   // Losing animation
   if (level.status == "lost") {
-    this.pos.y += step;
-    this.size.y -= step;
+    this.pos.y -= step;
+    this.size.y += step;
+	this.size.x += step;
   }  
 };
 
@@ -494,8 +523,10 @@ function runGame(plans, Display) {
         startLevel(n);
       else if (n < plans.length - 1)
         startLevel(n + 1);
-      else
+      else{
         console.log("You win!");
+		alert("Congratulations! You have collected all the pieces of the triforce!");
+	  }
     });
    }
    startLevel(0);
